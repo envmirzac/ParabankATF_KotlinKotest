@@ -31,12 +31,12 @@ class FundsTransferSpec : BehaviorSpec({
 
             When("a POST request is sent to \"/transfer\" with query parameters") {
                 val response = RestAssured.given()
-                    .contentType(ContentType.URLENC) // Set content type as URL encoded
-                    .queryParam("fromAccountId", fromAccountId) // Add fromAccountId as query parameter
-                    .queryParam("toAccountId", toAccountId) // Add toAccountId as query parameter
-                    .queryParam("amount", amount) // Add amount as query parameter
-                    .log().all() // Log the entire request for debugging
-                    .post("/transfer") // Send the request to the "/transfer" endpoint
+                    .contentType(ContentType.URLENC)
+                    .queryParam("fromAccountId", fromAccountId)
+                    .queryParam("toAccountId", toAccountId)
+                    .queryParam("amount", amount)
+                    .log().all()
+                    .post("/transfer")
 
                 Then("status code 200 is received") {
                     logger.info("Received status code: ${response.statusCode}")

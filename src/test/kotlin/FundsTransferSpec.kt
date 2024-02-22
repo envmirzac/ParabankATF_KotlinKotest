@@ -4,7 +4,7 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import org.slf4j.LoggerFactory
 
-// a test class extending "BehaviorSpec" for BDD style testing
+// a class extending "BehaviorSpec" for BDD style testing
 class FundsTransferSpec : BehaviorSpec({
 
     val logger = LoggerFactory.getLogger(FundsTransferSpec::class.java)

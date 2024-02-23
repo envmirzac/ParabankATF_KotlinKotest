@@ -4,12 +4,12 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import org.slf4j.LoggerFactory
 
-// a class extending "BehaviorSpec" for BDD style testing
+// a class extending "BehaviorSpec" (style) for BDD style testing
 class FundsTransferSpec : BehaviorSpec({
 
     val logger = LoggerFactory.getLogger(FundsTransferSpec::class.java)
 
-    // a setup that runs before the entire specification
+    // a setup that runs before the entire specification/feature/test
     beforeSpec {
         RestAssured.baseURI = PropertiesUtil.getProperty("baseURI") ?: "defaultBaseUriIfNotSet"
         logger.info("Base URI set to: ${RestAssured.baseURI}")

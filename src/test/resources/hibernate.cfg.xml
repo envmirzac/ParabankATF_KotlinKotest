@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- The 'session-factory' element is used to define a session factory. It contains all configurations, mappings, and database-specific settings. -->
+
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!-- Specifies the JDBC driver class to communicate with the MySQL database. -->
+
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/parabank_database</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Mobist@r123-</property>
+
+        <!-- Connection pool settings: c3p0 is an open-source JDBC connection pooling library -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <!-- Sets the minimum number of connections in the pool. -->
+
+        <property name="hibernate.c3p0.max_size">20</property>
+        <!-- Sets the maximum number of connections in the pool. -->
+
+        <property name="hibernate.c3p0.timeout">300</property>
+        <!-- Sets the timeout period (in seconds). If a connection is not returned within this period, it will be considered abandoned. -->
+
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <!-- Configures the statement cache, sets the size of PreparedStatement cache per connection. -->
+
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <!-- Sets the time (in seconds) between checks for idle connections. -->
+
+        <!-- Database dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- Specifies the SQL dialect used for communication with the MySQL database. The dialect translates the HQL (Hibernate Query Language) into SQL that's understood by the specific database. -->
+
+        <!-- Session context -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!-- Defines the strategy for linking the Hibernate Session with a current application thread. 'thread' means using a thread-scoped session context. -->
+
+        <!-- Debugging and profiling properties -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- Enables the logging of all the SQL statements issued by Hibernate. -->
+
+        <!-- Mapping with annotated class -->
+        <mapping class="model.User"/>
+        <!-- Specifies the entity class (model.User) that contains JPA/Hibernate annotations, indicating how the class should be mapped to a database table. -->
+    </session-factory>
+</hibernate-configuration>

@@ -7,23 +7,25 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 
+
 class LoginPage(private val driver: WebDriver) {
     private val wait: WebDriverWait = WebDriverWait(driver, 30L)
 
     private val usernameField: WebElement
-        get() = driver.findElement(By.name("username")) // Fixed
+        get() = driver.findElement(By.name("username"))
 
     private val passwordField: WebElement
-        get() = driver.findElement(By.name("password")) // Fixed
+        get() = driver.findElement(By.name("password"))
 
     private val loginButton: WebElement
-        get() = driver.findElement(By.xpath("//input[@value='Log In']")) // Fixed
+        get() = driver.findElement(By.xpath("//input[@value='Log In']"))
 
     fun navigateToLoginPage() {
         val baseUrl = PropertiesUtil.getProperty("baseUrl")
-        driver.get(baseUrl ?: "") // Handling potential null
+        driver.get(baseUrl ?: "")
     }
 
+    // Define a function to enter a username into the username field.
     fun enterUsername(username: String) {
         wait.until(ExpectedConditions.elementToBeClickable(usernameField))
         usernameField.clear()

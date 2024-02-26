@@ -28,7 +28,9 @@ class UI_OpenNewAccountTests : BehaviorSpec({
         loginPage.clickLoginButton()
     }
 
+    // "afterEach" is used to execute code after each test
     afterEach { (_, _) ->
+        // Navigates back to the open new account page after each test
         openNewAccountPage.navigateToOpenNewAccountPage()
         logger.info("Navigated back to the Open New Account page after the test")
     }
@@ -42,6 +44,7 @@ class UI_OpenNewAccountTests : BehaviorSpec({
         openNewAccountPage.navigateToOpenNewAccountPage()
         logger.info("Navigated to Parabank open new account page.")
 
+        // A list of "account types" and "source accounts" used for  testing
         listOf(
             "CHECKING" to "13566",
             "SAVINGS" to "13677",

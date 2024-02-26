@@ -5,12 +5,10 @@ import io.kotest.matchers.shouldBe
 import org.slf4j.LoggerFactory
 import utils.PropertiesUtil
 
-// a class extending "BehaviorSpec" (style) for BDD style testing
 class API_FundsTransferTests : BehaviorSpec({
 
     val logger = LoggerFactory.getLogger(API_FundsTransferTests::class.java)
 
-    // a setup that runs before the entire specification/feature/test
     beforeSpec {
         RestAssured.baseURI = PropertiesUtil.getProperty("baseURI") ?: "defaultBaseUriIfNotSet"
         logger.info("Base URI set to: ${RestAssured.baseURI}")
@@ -41,7 +39,7 @@ class API_FundsTransferTests : BehaviorSpec({
 
                 Then("status code 200 is received") {
                     logger.info("Received status code: ${response.statusCode}")
-                    // Using the "shouldBe" assert of Kotest
+                    // Using Kotest's "shouldBe" assertion method
                     response.statusCode shouldBe 200
                 }
 

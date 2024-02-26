@@ -18,7 +18,7 @@ class DB_UserDatabaseOperationsTests : BehaviorSpec({
 
     given("a new user with a random username") {
         val username = "VictorMirzac" + Random().nextInt(9000 + 100)
-        val password = "password" // Replace with actual password retrieval logic if necessary
+        val password = "password"
         val user = User(username = username, password = password)
 
         `when`("the user is persisted in the database") {
@@ -36,3 +36,4 @@ class DB_UserDatabaseOperationsTests : BehaviorSpec({
         SessionManager.closeSession()
     }
 })
+
